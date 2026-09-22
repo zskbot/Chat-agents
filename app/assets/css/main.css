@@ -9,7 +9,7 @@
 :root {
   --ui-primary: black;
   --ui-container: var(--container-3xl);
-  --ui-radius: 0.15rem;
+  --ui-radius: 0.2rem;
   overscroll-behavior-y: none;
 }
 
@@ -24,7 +24,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: oklch(25% 0 0 / 0.5) transparent;
+  scrollbar-color: oklch(25% 0 0 / 0.45) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -37,28 +37,40 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background: oklch(25% 0 0 / 0.5);
-  border-radius: 3px;
+  background: oklch(25% 0 0 / 0.45);
+  border-radius: 999px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
   background: oklch(35% 0 0 / 0.6);
 }
 
-.dark {
-  --ui-bg: oklch(14.5% 0 0);
-  --ui-bg-muted: oklch(17.5% 0 0);
-  --ui-bg-elevated: oklch(20.5% 0 0);
-  --ui-bg-accented: oklch(26.9% 0 0);
-  --ui-border: oklch(26.9% 0 0);
-  --ui-border-muted: oklch(23% 0 0);
-  --ui-border-accented: oklch(30% 0 0);
-}
-
 @layer base {
+  html {
+    background: var(--ui-bg);
+  }
+
   body {
     @apply antialiased;
   }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.websandbox-home {
+  background:
+    radial-gradient(ellipse 80% 42% at 50% 0%, color-mix(in oklab, var(--ui-text-toned) 9%, transparent), transparent 70%),
+    linear-gradient(to bottom, color-mix(in oklab, var(--ui-bg) 96%, white 4%), var(--ui-bg));
+}
+
+.websandbox-prompt textarea {
+  min-height: 72px;
+  resize: none;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 .hero-glow {
