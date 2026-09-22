@@ -6,86 +6,33 @@
   --font-mono: "Geist Mono", ui-monospace, monospace;
 }
 
-:root {
-  --ui-primary: black;
-  --ui-container: var(--container-3xl);
-  --ui-radius: 0.2rem;
-  overscroll-behavior-y: none;
-}
+:root { --ui-primary: black; --ui-container: var(--container-3xl); --ui-radius: 0.2rem; overscroll-behavior-y:none; }
+.dark { --ui-primary: white; }
 
-.dark {
-  --ui-primary: white;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-}
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: oklch(25% 0 0 / 0.45) transparent;
-}
-
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: oklch(25% 0 0 / 0.45);
-  border-radius: 999px;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: oklch(35% 0 0 / 0.6);
-}
+::view-transition-old(root),::view-transition-new(root){animation:none}
+*{scrollbar-width:thin;scrollbar-color:oklch(25% 0 0 / .45) transparent}
+*::-webkit-scrollbar{width:6px;height:6px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:oklch(25% 0 0 / .45);border-radius:999px}
+*::-webkit-scrollbar-thumb:hover{background:oklch(35% 0 0 / .6)}
 
 @layer base {
-  html {
-    background: var(--ui-bg);
-  }
-
-  body {
-    @apply antialiased;
-  }
-
-  button,
-  a {
-    -webkit-tap-highlight-color: transparent;
-  }
+ html{background:var(--ui-bg)}
+ body{@apply antialiased}
+ button,a{-webkit-tap-highlight-color:transparent}
 }
 
-.websandbox-home {
-  background:
-    radial-gradient(ellipse 80% 42% at 50% 0%, color-mix(in oklab, var(--ui-text-toned) 9%, transparent), transparent 70%),
-    linear-gradient(to bottom, color-mix(in oklab, var(--ui-bg) 96%, white 4%), var(--ui-bg));
-}
+.websandbox-home{background:radial-gradient(ellipse 80% 42% at 50% 0%,color-mix(in oklab,var(--ui-text-toned) 9%,transparent),transparent 70%),linear-gradient(to bottom,color-mix(in oklab,var(--ui-bg) 96%,white 4%),var(--ui-bg))}
+.websandbox-prompt textarea{min-height:72px;resize:none;font-size:15px;line-height:1.55}
+.hero-glow{background:radial-gradient(ellipse 90% 60% at 50% -15%,color-mix(in oklab,var(--ui-text-toned) 14%,transparent),transparent 72%)}
 
-.websandbox-prompt textarea {
-  min-height: 72px;
-  resize: none;
-  font-size: 15px;
-  line-height: 1.55;
-}
+.websandbox-ide{display:grid;grid-template-columns:minmax(320px,.92fr) minmax(420px,1.08fr);gap:1px;background:var(--ui-border)}
+.ide-panel{min-width:0;min-height:0;background:var(--ui-bg);display:flex;flex-direction:column;overflow:hidden}
+.ide-toolbar{height:44px;flex:0 0 44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border-bottom:1px solid var(--ui-border);background:color-mix(in oklab,var(--ui-bg) 94%,var(--ui-text) 6%)}
+.ide-code{flex:1;width:100%;resize:none;border:0;outline:0;padding:18px;background:#0b0b0d;color:#d4d4d8;font:12px/1.7 "Geist Mono",ui-monospace,monospace;tab-size:2}
+.ide-code:focus{box-shadow:inset 2px 0 0 var(--ui-primary)}
+.ide-tab{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:5px 9px;font-size:11px;color:var(--ui-text-muted)}
+.ide-tab-active{background:var(--ui-bg);color:var(--ui-text-highlighted);box-shadow:0 1px 2px #0002}
+@media(max-width:900px){.websandbox-ide{grid-template-columns:1fr;grid-template-rows:minmax(280px,.8fr) minmax(320px,1fr)}}
 
-.hero-glow {
-  background:
-    radial-gradient(
-      ellipse 90% 60% at 50% -15%,
-      color-mix(in oklab, var(--ui-text-toned) 14%, transparent),
-      transparent 72%
-    );
-}
-
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
-  font-style: var(--shiki-dark-font-style) !important;
-  font-weight: var(--shiki-dark-font-weight) !important;
-  text-decoration: var(--shiki-dark-text-decoration) !important;
-}
+html.dark .shiki span{color:var(--shiki-dark)!important;background-color:var(--shiki-dark-bg)!important;font-style:var(--shiki-dark-font-style)!important;font-weight:var(--shiki-dark-font-weight)!important;text-decoration:var(--shiki-dark-text-decoration)!important}
