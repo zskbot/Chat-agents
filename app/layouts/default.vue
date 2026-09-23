@@ -83,7 +83,7 @@ defineShortcuts({
           <UButton
             label="New project"
             icon="i-lucide-square-pen"
-            color="neutral"
+            color="primary"
             variant="solid"
             block
             class="justify-start rounded-lg"
