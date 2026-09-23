@@ -83,7 +83,7 @@ function summarizeDay() {
                   <UButton color="neutral" variant="ghost" size="sm" icon="i-lucide-github" aria-label="Import from GitHub" />
                   <UButton color="neutral" variant="ghost" size="sm" icon="i-lucide-sliders-horizontal" aria-label="Settings" />
                 </div>
-                <UChatPromptSubmit class="shrink-0" color="neutral" size="sm" />
+                <UChatPromptSubmit class="shrink-0" color="primary" size="sm" />
               </div>
             </template>
           </UChatPrompt>
